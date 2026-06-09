@@ -1,0 +1,154 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 38 40% 97%;
+    --foreground: 205 34% 14%;
+    --card: 0 0% 100%;
+    --card-foreground: 205 34% 14%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 205 34% 14%;
+    --primary: 171 57% 28%;
+    --primary-foreground: 38 40% 97%;
+    --secondary: 36 36% 92%;
+    --secondary-foreground: 205 34% 14%;
+    --muted: 36 28% 90%;
+    --muted-foreground: 208 16% 40%;
+    --accent: 17 88% 58%;
+    --accent-foreground: 14 28% 12%;
+    --destructive: 2 77% 53%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 30 20% 84%;
+    --input: 30 20% 84%;
+    --ring: 171 57% 28%;
+    --radius: 1.25rem;
+    --chart-1: 171 57% 28%;
+    --chart-2: 17 88% 58%;
+    --chart-3: 221 56% 44%;
+    --chart-4: 44 83% 53%;
+    --chart-5: 338 72% 48%;
+  }
+
+  .dark {
+    --background: 210 28% 9%;
+    --foreground: 36 25% 92%;
+    --card: 210 22% 12%;
+    --card-foreground: 36 25% 92%;
+    --popover: 210 22% 12%;
+    --popover-foreground: 36 25% 92%;
+    --primary: 168 57% 54%;
+    --primary-foreground: 210 28% 9%;
+    --secondary: 212 18% 18%;
+    --secondary-foreground: 36 25% 92%;
+    --muted: 212 16% 16%;
+    --muted-foreground: 215 12% 69%;
+    --accent: 18 88% 64%;
+    --accent-foreground: 210 28% 9%;
+    --destructive: 2 85% 64%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 212 14% 23%;
+    --input: 212 14% 23%;
+    --ring: 168 57% 54%;
+    --chart-1: 168 57% 54%;
+    --chart-2: 18 88% 64%;
+    --chart-3: 221 72% 68%;
+    --chart-4: 45 86% 62%;
+    --chart-5: 338 72% 62%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans), sans-serif;
+    background-image:
+      radial-gradient(circle at top left, hsl(var(--accent) / 0.12), transparent 26%),
+      radial-gradient(circle at top right, hsl(var(--primary) / 0.12), transparent 24%),
+      linear-gradient(180deg, hsl(var(--background)), hsl(var(--background)));
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display), serif;
+    letter-spacing: -0.02em;
+  }
+
+  code,
+  pre {
+    font-family: var(--font-mono), monospace;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.18);
+  }
+}
+
+@layer components {
+  .site-shell {
+    @apply relative overflow-hidden;
+  }
+
+  .page-frame {
+    @apply relative mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 md:py-14;
+  }
+
+  .soft-panel {
+    @apply rounded-[28px] border border-border/80 shadow-[0_20px_60px_-30px_rgba(20,40,35,0.35)] backdrop-blur;
+  }
+
+  .subtle-grid {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.28) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.28) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center rounded-full border border-border/80 bg-secondary/70 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.24em] text-muted-foreground;
+  }
+
+  .display-title {
+    @apply text-4xl leading-none sm:text-5xl lg:text-6xl;
+  }
+
+  .support-copy {
+    @apply text-base leading-7 text-muted-foreground sm:text-lg;
+  }
+
+  .result-copy h2,
+  .result-copy h3,
+  .result-copy h4 {
+    @apply mt-8 text-xl text-foreground;
+  }
+
+  .result-copy p,
+  .result-copy li,
+  .result-copy td,
+  .result-copy th {
+    @apply text-sm leading-7 text-foreground/90 sm:text-[15px];
+  }
+
+  .result-copy ul {
+    @apply ml-5 list-disc space-y-2;
+  }
+
+  .result-copy table {
+    @apply mt-4 w-full border-collapse overflow-hidden rounded-2xl border border-border;
+  }
+
+  .result-copy th,
+  .result-copy td {
+    @apply border border-border px-3 py-2 text-left align-top;
+  }
+}
